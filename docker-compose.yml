@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  offline:
+    image: erikmd/pfitaxel-offline:latest
+    build: .
+    ports:
+      - '80:8080'
+    restart: unless-stopped
+    environment:
+      # project_name: "PFITAXEL"
+      project_status: "en cours de maintenance"
+      # project_admin_url: "https://erik.martin-dorel.org"
+    networks:
+      - local-net
+
+networks:
+  local-net:
+    driver: bridge
